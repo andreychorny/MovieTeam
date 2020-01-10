@@ -1,0 +1,117 @@
+.section {
+	min-height: 40vh;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	line-height: 160%
+}
+
+
+.movieContainer {
+	padding: 10px;
+	margin: 10px;
+}
+
+.movieContainerItem {
+	margin: 20px;
+	position: relative;
+	color: #fff;
+    float:left;
+	width: 25%;
+}
+
+.movieContainerItem img {
+	float: right;
+}
+
+.movieContainerItem button {
+	padding: 5px;
+
+}
+
+.movieContainerItem input[type="text"] {
+	border: 1px solid white;
+	font-family: Raleway, Helvetica, Arial, sans-serif;
+	color: #bfc406;
+	font-size: 15px;
+	font-weight: 700;
+	width: 100%;
+
+}
+
+#movies .imageheader {
+	background: -webkit-linear-gradient(top, transparent, transparent),
+		url(../images/backgrounds/swimming.jpg);
+	background: linear-gradient(180deg, transparent, transparent),
+		url(../images/backgrounds/swimming.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 100vh;
+	max-height: auto
+}
+
+#movies .movie-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap /*.movie-item*/
+}
+
+#movies .movie-list .movie-item {
+	position: relative;
+	color: #fff;
+	overflow: hidden;
+	width: 50%;
+	-webkit-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+	opacity: .8 /*.movie-name*/
+}
+
+#movies .movie-list .movie-item .movie-name {
+	background: #d14348;
+	color: #f3d350;
+	font-weight: 700;
+	font-size: 80%;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: none
+}
+
+#movies .movie-list .movie-item:focus .movie-name, #movies .movie-list .movie-item:hover .movie-name
+	{
+	display: block
+}
+
+#movies .movie-list .movie-item:focus, #movies .movie-list .movie-item:hover
+	{
+	opacity: 1;
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+	z-index: 1
+}
+
+#movies .movie-list .movie-item:focus .movie-name, #movies .movie-list .movie-item:hover .movie-name
+	{
+	display: block;
+	-webkit-animation: a 1s;
+	animation: a 1s
+}
