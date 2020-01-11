@@ -24,8 +24,9 @@
 
             <c:if test="${!empty(movies)}">
     		<section id="movies" class="section">
-            <c:forEach var="movie" items="${movies}">
     		<div class="movieContainer">
+            <c:forEach var="movie" items="${movies}">
+
             			<div class="movieContainerItem">
             			     <img id="pic1" src="images/thereWillBeBlood.jpg">
             				<input type="text" name="movie"
