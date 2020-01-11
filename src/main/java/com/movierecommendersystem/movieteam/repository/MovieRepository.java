@@ -15,7 +15,7 @@ public interface MovieRepository  extends CrudRepository<Movie, Long> {
     public List<Movie> searchByTitle(@Param("title") String title);
 
 
-//    @Query("select m from Movie m where m.movieId<20")
-//    public List<Movie> findFirstTwentyMovies();
+    @Query(value = "select * from Movie m where m.title like %:title% limit 30", nativeQuery = true)
+    public List<Movie> findTop30ByTitle(@Param("title") String title);
 
 }

@@ -20,13 +20,13 @@ public class SearchRestController {
 
     @GetMapping("/rest/movies")
     public ResponseEntity getMoviesByRequestParam(@RequestParam("name") String name){
-        List<Movie> movies = movieRepository.searchByTitle(name);
+        List<Movie> movies = movieRepository.findTop30ByTitle(name);
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 
     @GetMapping("/rest/movies/{name}")
     public ResponseEntity getMoviesByPathVariable(@PathVariable("name") String name){
-        List<Movie> movies = movieRepository.searchByTitle(name);
+        List<Movie> movies = movieRepository.findTop30ByTitle(name);
         return new ResponseEntity<>(movies, HttpStatus.OK);
     }
 }
