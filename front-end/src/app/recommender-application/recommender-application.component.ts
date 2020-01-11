@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RecommenderApplicationService } from './recommender-application.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-recommender-application',
@@ -7,16 +8,20 @@ import { RecommenderApplicationService } from './recommender-application.service
   styleUrls: ['./recommender-application.component.scss']
 })
 export class RecommenderApplicationComponent implements OnInit {
+  inputCtrl: FormControl;
+  movies: [];
 
-  constructor(private httpService: RecommenderApplicationService) { }
+  constructor(private httpService: RecommenderApplicationService) {
+    this.inputCtrl = new FormControl('');
+  }
 
   ngOnInit() {
   }
 
-  test(): void {
-    console.log('wow');
-    this.httpService.getMovies('toy story').subscribe(data => {
-      console.log(data);
+  getMovies(): void {
+
+    this.httpService.getMovies(this.inputCtrl.value).subscribe(data => {
+      this.movies = data;
     })
   }
 

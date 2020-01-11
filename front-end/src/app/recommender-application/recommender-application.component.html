@@ -1,19 +1,25 @@
 <div class="container-fluid p-5">
-    <div class="col-12 d-flex justify-content-center">
-        <embed src="../../assets/images/logo_math_ul_h_en_rgb_uniform_background.jpg" style="width:50%; height:auto;"
+    <div class="col-12 d-flex justify-content-center m-3">
+        <img src="../../assets/images/logo_math_ul_h_en_rgb_uniform_background.jpg" style="width:50%; height:auto;"
             alt="">
     </div>
 
-    <mat-form-field>
-        <input matInput placeholder="Search movie" (keydown.enter)="test()">
-    </mat-form-field>
-    <div class="card" style="width: 18rem;" *ngFor="let item of this.items">
-        <img src="https://picsum.photos/150/100" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="col-12 d-flex justify-content-center">
+        <mat-form-field>
+            <input [formControl]="this.inputCtrl" matInput placeholder="Search movie" (keydown.enter)="getMovies()">
+        </mat-form-field>
+    </div>
+
+
+    <div class="container d-flex">
+        <div class="row">
+            <div class="card m-2" style="width: 18rem;" *ngFor="let movie of this.movies; let index = index;">
+                <img src="https://i.picsum.photos/id/{{100 +index}}/150/100.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <p class="card-text">{{movie.genres}}.</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
