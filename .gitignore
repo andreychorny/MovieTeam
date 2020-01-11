@@ -32,3 +32,49 @@ build/
 
 ### our files ###
 /src/main/resources/application.properties
+front-end/dist/*
+
+# compiled output
+/dist
+front-end/tmp
+front-end/out-tsc
+# Only exists if Bazel was run
+front-end/bazel-out
+
+# dependencies
+front-end/node_modules
+
+# profiling files
+front-end/chrome-profiler-events.json
+front-end/speed-measure-plugin.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/1.txt
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
