@@ -11,6 +11,9 @@ import { RecommenderBusinessRequirementsComponent } from './recommender-business
 import { RecommenderMeasurementsComponent } from './recommender-measurements/recommender-measurements.component';
 import { RecommenderApplicationComponent } from './recommender-application/recommender-application.component';
 import { RecommenderConclusionComponent } from './recommender-conclusion/recommender-conclusion.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { RecommenderConclusionComponent } from './recommender-conclusion/recomme
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MatMenuModule
+    MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecommenderApplicationService } from './recommender-application.service';
 
 @Component({
   selector: 'app-recommender-application',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecommenderApplicationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: RecommenderApplicationService) { }
 
   ngOnInit() {
+  }
+
+  test(): void {
+    console.log('wow');
+    this.httpService.getMovies('toy story').subscribe(data => {
+      console.log(data);
+    })
   }
 
 }
