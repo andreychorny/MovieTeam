@@ -1,9 +1,11 @@
 <div class="container-fluid p-5">
-    <div class="col-12 d-flex justify-content-center mb-3">
-        <img src="../../assets/images/logo_math_ul_h_en_rgb_uniform_background.jpg" style="width:50%; height:auto;"
-            alt="">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-s-12 col-lg-8 d-flex justify-content-center mb-3">
+                <img src="../../assets/images/logo_math_ul_h_en_rgb_uniform_background.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
     </div>
-
     <div class="col-12 d-flex justify-content-center">
         <mat-form-field>
             <input [formControl]="this.inputCtrl" matInput placeholder="Search movie" (keydown.enter)="getMovies()">
