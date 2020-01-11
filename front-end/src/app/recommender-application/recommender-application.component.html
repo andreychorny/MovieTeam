@@ -3,6 +3,10 @@
         <embed src="../../assets/images/logo_math_ul_h_en_rgb_uniform_background.jpg" style="width:50%; height:auto;"
             alt="">
     </div>
+
+    <mat-form-field>
+        <input matInput placeholder="Search movie" (keydown.enter)="test()">
+    </mat-form-field>
     <div class="card" style="width: 18rem;" *ngFor="let item of this.items">
         <img src="https://picsum.photos/150/100" class="card-img-top" alt="...">
         <div class="card-body">
