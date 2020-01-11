@@ -4,12 +4,23 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <head>
     <meta charset="UTF-8">
-    <title>MovieTeam</title>
+    <title>MovieTeamSearch</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1> Hello there </h1>
-<a href="/goToSearch">Title search</a>
+<h1> Search by movie title </h1>
+
+	<section id="search" class="section">
+		<header class="imageheader"></header>
+		<div class="container">
+			<h2 class="headline">Search Movies</h2>
+			<form action="/search" method="get">
+				<label class="card-title">Search your movie</label>
+				 <input path="search" name="search" value="">
+			     <input type="submit" value="Search">
+			</form>
+		</div>
+	</section>
 
             <c:if test="${!empty(movies)}">
     		<section id="movies" class="section">

@@ -6,35 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class SearchController {
 
     @Autowired
     private MovieRepository movieRepository;
 
-    @GetMapping("/home")
-    public String goHome(Model model){
-        System.out.println("in home controller");
-
+    @GetMapping("/search")
+    public String search(@RequestParam("search") String search, Model model){
+        System.out.println("in search controller");
+        System.out.println("search title: "+search);
         List<Movie> movies = new ArrayList<>();
-        movies = (List<Movie>) movieRepository.findAll();
+        movies = movieRepository.searchByTitle(search);
         model.addAttribute("movies", movies);
-        System.out.println(movies.size());
-        System.out.println(movies.get(0).getId());
-        System.out.println(movies.get(0).getTitle());
-        System.out.println(movies.get(6).getId());
-        System.out.println(movies.get(6).getTitle());
-        return "index";
-    }
-
-    @GetMapping("/goToSearch")
-    public String goToSearch(){
-        System.out.println("going to search page");
         return "search";
     }
-
 }
