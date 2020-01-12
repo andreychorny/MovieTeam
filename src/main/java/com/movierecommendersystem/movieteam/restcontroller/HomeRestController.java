@@ -19,6 +19,7 @@ public class HomeRestController {
     @Autowired
     private MovieRepository movieRepository;
 
+
     @GetMapping("/home/movies")
     public ResponseEntity getAllMovies(){
         List<Movie> movies = (List<Movie>) movieRepository.findAll();

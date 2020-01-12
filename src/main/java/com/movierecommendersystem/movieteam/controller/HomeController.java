@@ -1,7 +1,9 @@
 package com.movierecommendersystem.movieteam.controller;
 
 import com.movierecommendersystem.movieteam.entity.Movie;
+import com.movierecommendersystem.movieteam.entity.Rating;
 import com.movierecommendersystem.movieteam.repository.MovieRepository;
+import com.movierecommendersystem.movieteam.repository.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,9 @@ public class HomeController {
     @Autowired
     private MovieRepository movieRepository;
 
+    @Autowired
+    private RatingRepository ratingRepository;
+
     @GetMapping("/home")
     public String goHome(Model model){
         System.out.println("in home controller");
@@ -23,11 +28,13 @@ public class HomeController {
         List<Movie> movies = new ArrayList<>();
         movies = (List<Movie>) movieRepository.findAll();
         model.addAttribute("movies", movies);
-        System.out.println(movies.size());
-        System.out.println(movies.get(0).getId());
-        System.out.println(movies.get(0).getTitle());
-        System.out.println(movies.get(6).getId());
-        System.out.println(movies.get(6).getTitle());
+        List<Rating> ratings = new ArrayList<>();
+        ratings = ratingRepository.findRatingsOfUserById((long) 5);
+        System.out.println(ratings.get(0).getMovie_id());
+        System.out.println(ratings.get(0).getRating());
+        System.out.println(ratings.get(4).getMovie_id());
+        System.out.println(ratings.get(4).getRating());
+
         return "index";
     }
 
