@@ -27,20 +27,27 @@ public class PearsonCorrelationService {
 //        List<Rating> userTwoR = ratingRepository.findRatingsOfUserById(userTwo.getId());
 
     public double calculatePersonCorrelationBetweenUsers(long userOneId, long userTwoId){
-
         readTheRatingsData(userOneId, userTwoId);
-
         splitRatingsDataOnMaps();
-
         return processCalculation();
     }
 
-    private Double calculateMeanRatingOfUser(HashMap<Long,Double> allRatedMovies, Set<Long> whichMoviesToCount){
+    //obsolete code where I calculated mean rating of user based only for mutually viewed movies between 2 users
+//    private Double calculateMeanRatingOfUser(HashMap<Long,Double> allRatedMovies, Set<Long> whichMoviesToCount){
+//        double userSumRating = 0;
+//        for (long id: whichMoviesToCount) {
+//            userSumRating = userSumRating + allRatedMovies.get(id);
+//        }
+//        double userMeanRating = userSumRating / whichMoviesToCount.size();
+//        return userMeanRating;
+//    }
+
+    private Double calculateMeanRatingOfUser(HashMap<Long,Double> allRatedMovies){
         double userSumRating = 0;
-        for (long id: whichMoviesToCount) {
+        for (long id: allRatedMovies.keySet()) {
             userSumRating = userSumRating + allRatedMovies.get(id);
         }
-        double userMeanRating = userSumRating / whichMoviesToCount.size();
+        double userMeanRating = userSumRating / allRatedMovies.size();
         return userMeanRating;
     }
 
@@ -64,8 +71,10 @@ public class PearsonCorrelationService {
 
     private double processCalculation(){
 
-        double userOneMeanRating = calculateMeanRatingOfUser(userOneViewedMovies,mutuallyRatedMovies);
-        double userTwoMeanRating = calculateMeanRatingOfUser(userTwoViewedMovies,mutuallyRatedMovies);
+        if(mutuallyRatedMovies.size()<5) return -1;
+
+        double userOneMeanRating = calculateMeanRatingOfUser(userOneViewedMovies);
+        double userTwoMeanRating = calculateMeanRatingOfUser(userTwoViewedMovies);
         double numerator = 0;
         double userOneDenominator = 0;
         double userTwoDenominator = 0;
@@ -82,4 +91,5 @@ public class PearsonCorrelationService {
         userTwoDenominator = Math.sqrt(userTwoDenominator);
         return (numerator / (userOneDenominator * userTwoDenominator));
     }
+
 }
