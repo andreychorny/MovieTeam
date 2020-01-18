@@ -22,6 +22,8 @@ public class PearsonCorrelationService {
     private HashMap<Long, Double> userTwoViewedMovies;
     private List<Rating> userOneR;
     private List<Rating> userTwoR;
+    private double userOneMeanRating;
+    private double userTwoMeanRating;
 //    public double calculatePersonCorrelationBetweenUsers(User userOne, User userTwo){
 //        List<Rating> userOneR = ratingRepository.findRatingsOfUserById(userOne.getId());
 //        List<Rating> userTwoR = ratingRepository.findRatingsOfUserById(userTwo.getId());
@@ -73,8 +75,8 @@ public class PearsonCorrelationService {
 
         if(mutuallyRatedMovies.size()<5) return -1;
 
-        double userOneMeanRating = calculateMeanRatingOfUser(userOneViewedMovies);
-        double userTwoMeanRating = calculateMeanRatingOfUser(userTwoViewedMovies);
+        userOneMeanRating = calculateMeanRatingOfUser(userOneViewedMovies);
+        userTwoMeanRating = calculateMeanRatingOfUser(userTwoViewedMovies);
         double numerator = 0;
         double userOneDenominator = 0;
         double userTwoDenominator = 0;
@@ -92,4 +94,11 @@ public class PearsonCorrelationService {
         return (numerator / (userOneDenominator * userTwoDenominator));
     }
 
+    public double dummyUserOneMeanGet(){
+        return userOneMeanRating;
+    }
+
+    public double dummyUserTwoMeanGet(){
+        return userTwoMeanRating;
+    }
 }

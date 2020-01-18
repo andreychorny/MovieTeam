@@ -6,13 +6,16 @@ import com.movierecommendersystem.movieteam.repository.MovieRepository;
 import com.movierecommendersystem.movieteam.repository.RatingRepository;
 import com.movierecommendersystem.movieteam.repository.UserRepository;
 import com.movierecommendersystem.movieteam.service.PearsonCorrelationService;
+import com.movierecommendersystem.movieteam.service.UserByUserRecommender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -27,13 +30,13 @@ public class HomeController {
     private UserRepository userRepository;
 
     @Autowired
-    private PearsonCorrelationService pearsonCorrelationService;
+    private UserByUserRecommender userByUserRecommender;;
 
     @GetMapping("/home")
     public String goHome(Model model){
         System.out.println("in home controller");
 
-        List<Movie> movies = new ArrayList<>();
+        List<Movie> movies;
         movies = (List<Movie>) movieRepository.findAll();
         model.addAttribute("movies", movies);
         List<Rating> ratings = new ArrayList<>();
@@ -43,9 +46,11 @@ public class HomeController {
         System.out.println(ratings.get(4).getMovie_id());
         System.out.println(ratings.get(4).getRating());
         System.out.println("!!!!!");
-        for(int i = 1; i<610; i++) {
-            double correlation = pearsonCorrelationService.calculatePersonCorrelationBetweenUsers(1,i);
-            System.out.println("correlation user" + i +" =" + correlation);
+        HashMap<Long,Double> movies2;
+        movies2 = userByUserRecommender.makeRecommendation(1);
+        for(Map.Entry<Long,Double> entry : movies2.entrySet()){
+            int id = Math.toIntExact(entry.getKey());
+            System.out.println(movies.get(id).getId() + "  TITLE: "+ movies.get(id).getTitle());
         }
         return "index";
     }

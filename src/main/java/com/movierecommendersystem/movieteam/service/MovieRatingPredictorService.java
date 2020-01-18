@@ -21,12 +21,15 @@ public class MovieRatingPredictorService {
         double denumeratorSum = 0;
         for (long userId: similaritiesWithUsers.keySet()) {
             Rating rowForThisMovieRatingNeighbor = ratingRepository.findRatingOnMovieOfUserById(movieId, userId);
-            double ratingForMovieByNeighbor = rowForThisMovieRatingNeighbor.getRating();
-            numeratorSum = numeratorSum + (similaritiesWithUsers.get(userId) * (ratingForMovieByNeighbor -
-                    meanRatingOfUsers.get(userId)));
-            denumeratorSum = denumeratorSum + Math.abs(similaritiesWithUsers.get(userId));
+            if(rowForThisMovieRatingNeighbor != null){
+                double ratingForMovieByNeighbor = rowForThisMovieRatingNeighbor.getRating();
+                numeratorSum = numeratorSum + (similaritiesWithUsers.get(userId) * (ratingForMovieByNeighbor -
+                        meanRatingOfUsers.get(userId)));
+                denumeratorSum = denumeratorSum + Math.abs(similaritiesWithUsers.get(userId));
+            }
         }
         predictedRating = meanRatingOfUsers.get(predictedUserId) + (numeratorSum / denumeratorSum);
+        System.out.println(movieId + " RAT: "+predictedRating);
         return predictedRating;
     }
 }
