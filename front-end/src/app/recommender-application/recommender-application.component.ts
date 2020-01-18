@@ -22,7 +22,7 @@ export class RecommenderApplicationComponent implements OnInit {
 
     this.httpService.getMovies(this.inputCtrl.value).subscribe(data => {
       this.movies = data;
-    })
+    });
   }
 
 }
