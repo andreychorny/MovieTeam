@@ -14,9 +14,6 @@ import java.util.Set;
 @Component
 public class PearsonCorrelationService {
 
-    @Autowired
-    private RatingRepository ratingRepository;
-
     public double calculatePersonCorrelationBetweenUsers(HashMap<Long, Double> userOneViewedMovies,
                                       HashMap<Long, Double> userTwoViewedMovies,
                                       double userOneMeanRating,double userTwoMeanRating,
