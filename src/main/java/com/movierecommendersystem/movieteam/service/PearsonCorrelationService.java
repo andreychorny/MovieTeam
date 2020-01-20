@@ -17,73 +17,24 @@ public class PearsonCorrelationService {
     @Autowired
     private RatingRepository ratingRepository;
 
-    private HashMap<Long, Double> userOneViewedMovies;
-    private Set<Long> mutuallyRatedMovies;
-    private HashMap<Long, Double> userTwoViewedMovies;
-    private List<Rating> userOneR;
-    private List<Rating> userTwoR;
-    private double userOneMeanRating;
-    private double userTwoMeanRating;
-//    public double calculatePersonCorrelationBetweenUsers(User userOne, User userTwo){
-//        List<Rating> userOneR = ratingRepository.findRatingsOfUserById(userOne.getId());
-//        List<Rating> userTwoR = ratingRepository.findRatingsOfUserById(userTwo.getId());
-
-    public double calculatePersonCorrelationBetweenUsers(long userOneId, long userTwoId){
-        readTheRatingsData(userOneId, userTwoId);
-        splitRatingsDataOnMaps();
-        return processCalculation();
-    }
-
-    //obsolete code where I calculated mean rating of user based only for mutually viewed movies between 2 users
-//    private Double calculateMeanRatingOfUser(HashMap<Long,Double> allRatedMovies, Set<Long> whichMoviesToCount){
-//        double userSumRating = 0;
-//        for (long id: whichMoviesToCount) {
-//            userSumRating = userSumRating + allRatedMovies.get(id);
-//        }
-//        double userMeanRating = userSumRating / whichMoviesToCount.size();
-//        return userMeanRating;
-//    }
-
-    private Double calculateMeanRatingOfUser(HashMap<Long,Double> allRatedMovies){
-        double userSumRating = 0;
-        for (long id: allRatedMovies.keySet()) {
-            userSumRating = userSumRating + allRatedMovies.get(id);
-        }
-        double userMeanRating = userSumRating / allRatedMovies.size();
-        return userMeanRating;
-    }
-
-    private void readTheRatingsData(long userOneId, long userTwoId){
-        userOneR = ratingRepository.findRatingsOfUserById(userOneId);
-        userTwoR = ratingRepository.findRatingsOfUserById(userTwoId);
-    }
-
-    private void splitRatingsDataOnMaps(){
-        userOneViewedMovies = new HashMap<>();
-        mutuallyRatedMovies = new HashSet<Long>();
-        for (Rating rating: userOneR) {
-            userOneViewedMovies.put(rating.getMovie_id(),rating.getRating());
-        }
-        userTwoViewedMovies = new HashMap<>();
-        for (Rating rating: userTwoR) {
-            userTwoViewedMovies.put(rating.getMovie_id(),rating.getRating());
-            if (userOneViewedMovies.containsKey(rating.getMovie_id())) mutuallyRatedMovies.add(rating.getMovie_id());
-        }
-    }
-
-    private double processCalculation(){
-
+    public double calculatePersonCorrelationBetweenUsers(HashMap<Long, Double> userOneViewedMovies,
+                                      HashMap<Long, Double> userTwoViewedMovies,
+                                      double userOneMeanRating,double userTwoMeanRating,
+                                      Set<Long> mutuallyRatedMovies){
         if(mutuallyRatedMovies.size()<5) return -1;
 
-        userOneMeanRating = calculateMeanRatingOfUser(userOneViewedMovies);
-        userTwoMeanRating = calculateMeanRatingOfUser(userTwoViewedMovies);
         double numerator = 0;
         double userOneDenominator = 0;
         double userTwoDenominator = 0;
+
+        double differenceCurrentRatingFromMeanUserOne;
+        double differenceCurrentRatingFromMeanUserTwo;
+        double differencesMultiplication;
+
         for (Long id: mutuallyRatedMovies) {
-            double differenceCurrentRatingFromMeanUserOne = userOneViewedMovies.get(id) - userOneMeanRating;
-            double differenceCurrentRatingFromMeanUserTwo = userTwoViewedMovies.get(id) - userTwoMeanRating;
-            double differencesMultiplication = differenceCurrentRatingFromMeanUserOne *
+            differenceCurrentRatingFromMeanUserOne = userOneViewedMovies.get(id) - userOneMeanRating;
+            differenceCurrentRatingFromMeanUserTwo = userTwoViewedMovies.get(id) - userTwoMeanRating;
+            differencesMultiplication = differenceCurrentRatingFromMeanUserOne *
                     differenceCurrentRatingFromMeanUserTwo;
             numerator = numerator + differencesMultiplication;
             userOneDenominator = userOneDenominator + Math.pow(differenceCurrentRatingFromMeanUserOne, 2);
@@ -92,13 +43,5 @@ public class PearsonCorrelationService {
         userOneDenominator = Math.sqrt(userOneDenominator);
         userTwoDenominator = Math.sqrt(userTwoDenominator);
         return (numerator / (userOneDenominator * userTwoDenominator));
-    }
-
-    public double dummyUserOneMeanGet(){
-        return userOneMeanRating;
-    }
-
-    public double dummyUserTwoMeanGet(){
-        return userTwoMeanRating;
     }
 }

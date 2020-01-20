@@ -5,8 +5,7 @@ import com.movierecommendersystem.movieteam.entity.Rating;
 import com.movierecommendersystem.movieteam.repository.MovieRepository;
 import com.movierecommendersystem.movieteam.repository.RatingRepository;
 import com.movierecommendersystem.movieteam.repository.UserRepository;
-import com.movierecommendersystem.movieteam.service.PearsonCorrelationService;
-import com.movierecommendersystem.movieteam.service.UserByUserRecommender;
+import com.movierecommendersystem.movieteam.service.UserByUserMovieRatingPredictor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +29,7 @@ public class HomeController {
     private UserRepository userRepository;
 
     @Autowired
-    private UserByUserRecommender userByUserRecommender;;
+    private UserByUserMovieRatingPredictor userByUserMovieRatingPredictor;
 
     @GetMapping("/home")
     public String goHome(Model model){
@@ -39,7 +38,7 @@ public class HomeController {
         List<Movie> movies;
         movies = (List<Movie>) movieRepository.findAll();
         model.addAttribute("movies", movies);
-        List<Rating> ratings = new ArrayList<>();
+        List<Rating> ratings;
         ratings = ratingRepository.findRatingsOfUserById((long) 1);
         System.out.println(ratings.get(0).getMovie_id());
         System.out.println(ratings.get(0).getRating());
@@ -47,7 +46,7 @@ public class HomeController {
         System.out.println(ratings.get(4).getRating());
         System.out.println("!!!!!");
         HashMap<Long,Double> movies2;
-        movies2 = userByUserRecommender.makeRecommendation(1);
+        movies2 = userByUserMovieRatingPredictor.makeRecommendation(1);
         for(Map.Entry<Long,Double> entry : movies2.entrySet()){
             int id = Math.toIntExact(entry.getKey());
             System.out.println(movies.get(id).getId() + "  TITLE: "+ movies.get(id).getTitle());
