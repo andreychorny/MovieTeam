@@ -5,6 +5,8 @@ import com.movierecommendersystem.movieteam.entity.Rating;
 import com.movierecommendersystem.movieteam.repository.MovieRepository;
 import com.movierecommendersystem.movieteam.repository.RatingRepository;
 import com.movierecommendersystem.movieteam.repository.UserRepository;
+import com.movierecommendersystem.movieteam.service.UserByUserMovieRatingPredictor;
+import com.movierecommendersystem.movieteam.service.UserByUserSimilaritiesBasedRecommender;
 import com.movierecommendersystem.movieteam.serviceimpl.UserByUserMovieRatingPredictorImpl;
 import com.movierecommendersystem.movieteam.serviceimpl.UserByUserSimilaritiesBasedRecommenderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +29,10 @@ public class HomeController {
     private UserRepository userRepository;
 
     @Autowired
-    private UserByUserMovieRatingPredictorImpl userByUserMovieRatingPredictor;
+    private UserByUserMovieRatingPredictor userByUserMovieRatingPredictor;
 
     @Autowired
-    private UserByUserSimilaritiesBasedRecommenderImpl userByUserSimilaritiesBasedRecommender;
+    private UserByUserSimilaritiesBasedRecommender userByUserSimilaritiesBasedRecommender;
 
     @GetMapping("/home")
     public String goHome(Model model){

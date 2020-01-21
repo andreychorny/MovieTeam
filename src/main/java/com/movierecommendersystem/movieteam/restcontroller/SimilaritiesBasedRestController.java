@@ -1,6 +1,7 @@
 package com.movierecommendersystem.movieteam.restcontroller;
 
 import com.movierecommendersystem.movieteam.entity.Movie;
+import com.movierecommendersystem.movieteam.service.UserByUserSimilaritiesBasedRecommender;
 import com.movierecommendersystem.movieteam.serviceimpl.UserByUserSimilaritiesBasedRecommenderImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import java.util.List;
 public class SimilaritiesBasedRestController {
 
     @Autowired
-    private UserByUserSimilaritiesBasedRecommenderImpl userByUserSimilaritiesBasedRecommender;
+    private UserByUserSimilaritiesBasedRecommender userByUserSimilaritiesBasedRecommender;
 
     @GetMapping("/rest/similar")
     public ResponseEntity getMoviesByRequestParam(@RequestParam("id") Long id){
