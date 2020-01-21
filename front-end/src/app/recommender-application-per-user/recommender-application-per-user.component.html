@@ -12,8 +12,10 @@
                 (keydown.enter)="getRecomendation()">
         </mat-form-field>
     </div>
+    <div class="container d-flex justify-content-center">
 
-
+        <h4>These movies have been recommended for user ID: {{this.inputCtrl.value}}</h4>
+    </div>
     <div class="container d-flex justify-content-center">
         <div class="row justify-content-center">
             <div class="card m-2" style="width: 18rem;" *ngFor="let movie of this.movies; let index = index;">
