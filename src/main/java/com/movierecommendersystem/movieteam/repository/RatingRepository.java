@@ -15,6 +15,12 @@ public interface RatingRepository extends CrudRepository<Rating, RatingId> {
     @Query("SELECT r FROM Rating r where r.user_id = :id")
     List<Rating> findRatingsOfUserById(@Param("id") Long id);
 
+//    @Query("SELECT r FROM Rating r where r.user_id = :id ORDER BY r.rating DESC")
+//    List<Rating> findRatingsOfUserByIdOrderByRatingDESC(@Param("id") Long id);
+
+    @Query("SELECT r,m FROM  Rating r JOIN Movie m ON m.id=r.movie_id WHERE r.user_id = :id ORDER BY r.rating DESC")
+    List<Object[]> findRatingsAndMoviesOfUserByIdOrderByRatingDESC(@Param("id") Long id);
+
     @Query("SELECT r FROM Rating r where r.movie_id =:movieId and r.user_id = :userId")
     Rating findRatingOnMovieOfUserById(@Param("movieId") Long movieId, @Param("userId") Long userId);
 }
