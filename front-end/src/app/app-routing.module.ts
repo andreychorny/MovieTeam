@@ -5,6 +5,7 @@ import { RecommenderBusinessRequirementsComponent } from './recommender-business
 import { RecommenderMeasurementsComponent } from './recommender-measurements/recommender-measurements.component';
 import { RecommenderApplicationComponent } from './recommender-application/recommender-application.component';
 import { RecommenderConclusionComponent } from './recommender-conclusion/recommender-conclusion.component';
+import { RecommenderApplicationPerUserComponent } from './recommender-application-per-user/recommender-application-per-user.component';
 
 
 const appRoutes: Routes = [
@@ -13,6 +14,7 @@ const appRoutes: Routes = [
   { path: 'measurements', component: RecommenderMeasurementsComponent },
   { path: 'application', component: RecommenderApplicationComponent },
   { path: 'conclusion', component: RecommenderConclusionComponent },
+  { path: 'application-per-user', component: RecommenderApplicationPerUserComponent },
   { path: '**', component: RecommenderApplicationComponent }
 ];
 

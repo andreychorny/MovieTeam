@@ -13,7 +13,8 @@ import { RecommenderApplicationComponent } from './recommender-application/recom
 import { RecommenderConclusionComponent } from './recommender-conclusion/recommender-conclusion.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { RecommenderApplicationPerUserComponent } from './recommender-application-per-user/recommender-application-per-user.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http'
     RecommenderBusinessRequirementsComponent,
     RecommenderMeasurementsComponent,
     RecommenderApplicationComponent,
-    RecommenderConclusionComponent
+    RecommenderConclusionComponent,
+    RecommenderApplicationPerUserComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+<div class="container-fluid p-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-s-12 col-lg-8 d-flex justify-content-center mb-3">
+                <img src="../../assets/images/logo_math_ul_h_en_rgb_uniform_background.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+        <mat-form-field style="flex:0 1 220px;;">
+            <input [formControl]="this.inputCtrl" matInput placeholder="Search user recommendation"
+                (keydown.enter)="getRecomendation()">
+        </mat-form-field>
+    </div>
+
+
+    <div class="container d-flex justify-content-center">
+        <div class="row justify-content-center">
+            <div class="card m-2" style="width: 18rem;" *ngFor="let movie of this.movies; let index = index;">
+                <img src="https://i.picsum.photos/id/{{151 +index}}/150/100.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{movie.title}}</h5>
+                    <p class="card-text">{{movie.genres}}.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

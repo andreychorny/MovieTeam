@@ -13,4 +13,9 @@ export class RecommenderApplicationService {
     const fixedString = searchString.replace(' ', '+');
     return this.httpClient.get(`http://localhost:8080/rest/movies?name=${fixedString}`);
   }
+
+  getRecomendation(searchString: string): Observable<any> {
+    const fixedString = searchString.replace(' ', '+');
+    return this.httpClient.get(`http://localhost:8080/rest/similar?id=${fixedString}`);
+  }
 }
