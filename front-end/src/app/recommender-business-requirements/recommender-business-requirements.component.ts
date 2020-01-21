@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recommender-business-requirements.component.scss']
 })
 export class RecommenderBusinessRequirementsComponent implements OnInit {
+  src = '../../assets/images/business-requirements.pdf';
+
 
   test = [1, 2, 3, 4];
+
   constructor() { }
 
   ngOnInit() {

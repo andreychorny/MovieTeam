@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.movierecommendersystem.movieteam.MovieteamApplication</OriginalElement>
+  <nodes>
+    <node x="1949.75" y="1029.0">javax.persistence.IdClass</node>
+    <node x="181.86250000000018" y="402.0">org.springframework.data.repository.CrudRepository</node>
+    <node x="1155.0" y="1108.0">com.movierecommendersystem.movieteam.entity.RatingId</node>
+    <node x="441.0916666666667" y="1029.0">org.springframework.web.bind.annotation.CrossOrigin</node>
+    <node x="144.86250000000018" y="137.0">org.springframework.data.repository.NoRepositoryBean</node>
+    <node x="1785.0" y="1132.0">com.movierecommendersystem.movieteam.entity.User</node>
+    <node x="0.0" y="1392.0">com.movierecommendersystem.movieteam.restcontroller.SimilaritiesBasedRestController</node>
+    <node x="324.8625000000002" y="137.0">org.springframework.data.repository.Repository</node>
+    <node x="999.2729166666667" y="12.0">org.springframework.stereotype.Indexed</node>
+    <node x="0.0" y="887.0">com.movierecommendersystem.movieteam.repository.RatingRepository</node>
+    <node x="3095.8625" y="125.0">com.movierecommendersystem.movieteam.service.UserByUserMovieRatingPredictor</node>
+    <node x="1636.6125000000002" y="512.0">org.springframework.stereotype.Repository</node>
+    <node x="1591.8020833333335" y="898.0">com.movierecommendersystem.movieteam.repository.MovieRepository</node>
+    <node x="1118.3625000000002" y="125.0">com.movierecommendersystem.movieteam.service.UserByUserSimilaritiesBasedRecommender</node>
+    <node x="2650.6125" y="137.0">com.movierecommendersystem.movieteam.service.PearsonCorrelationService</node>
+    <node x="1784.0" y="1029.0">javax.persistence.Entity</node>
+    <node x="2940.6125" y="260.0">com.movierecommendersystem.movieteam.serviceimpl.UserByUserMovieRatingPredictorImpl</node>
+    <node x="1372.0" y="1029.0">org.springframework.boot.autoconfigure.SpringBootApplication</node>
+    <node x="1924.0" y="1143.0">com.movierecommendersystem.movieteam.entity.Rating</node>
+    <node x="1898.3625000000002" y="103.0">com.movierecommendersystem.movieteam.service.UserRatingProcessingService</node>
+    <node x="598.6125000000001" y="491.0">com.movierecommendersystem.movieteam.serviceimpl.MovieRatingPredictorServiceImpl</node>
+    <node x="880.0" y="1403.0">com.movierecommendersystem.movieteam.restcontroller.HomeRestController</node>
+    <node x="2286.6125" y="512.0">com.movierecommendersystem.movieteam.serviceimpl.PearsonCorrelationServiceImpl</node>
+    <node x="1161.6125000000002" y="337.0">com.movierecommendersystem.movieteam.serviceimpl.UserByUserSimilaritiesBasedRecommenderImpl</node>
+    <node x="545.0" y="1392.0">com.movierecommendersystem.movieteam.restcontroller.SearchRestController</node>
+    <node x="1663.0" y="1143.0">com.movierecommendersystem.movieteam.entity.Movie</node>
+    <node x="776.0333333333333" y="1149.0">org.springframework.web.bind.annotation.RestController</node>
+    <node x="1775.6125000000002" y="458.0">com.movierecommendersystem.movieteam.serviceimpl.UserRatingProcessingServiceImpl</node>
+    <node x="1175.0" y="1029.0">java.io.Serializable</node>
+    <node x="1401.0" y="1220.0">com.movierecommendersystem.movieteam.MovieteamApplication</node>
+    <node x="2445.1125" y="0.0">com.movierecommendersystem.movieteam.service.UserSimilaritiesService</node>
+    <node x="1646.5291666666667" y="125.0">org.springframework.stereotype.Component</node>
+    <node x="462.8625000000002" y="125.0">com.movierecommendersystem.movieteam.service.MovieRatingPredictorService</node>
+    <node x="920.9395833333333" y="921.0">com.movierecommendersystem.movieteam.repository.UserRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.PearsonCorrelationServiceImpl" target="com.movierecommendersystem.movieteam.service.PearsonCorrelationService">
+      <point x="158.5" y="-26.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.MovieteamApplication" target="org.springframework.boot.autoconfigure.SpringBootApplication">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="70.5" />
+    </edge>
+    <edge source="org.springframework.stereotype.Component" target="org.springframework.stereotype.Indexed">
+      <point x="0.0" y="-26.5" />
+      <point x="1706.0291666666667" y="78.0" />
+      <point x="1072.0229166666668" y="78.0" />
+      <point x="24.25" y="14.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.UserRatingProcessingServiceImpl" target="org.springframework.stereotype.Component">
+      <point x="-122.75" y="-80.5" />
+      <point x="1898.3625000000002" y="240.0" />
+      <point x="1715.9458333333337" y="240.0" />
+      <point x="9.916666666666742" y="26.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.CrudRepository" target="org.springframework.data.repository.Repository">
+      <point x="61.25" y="-136.5" />
+      <point x="365.6125000000002" y="240.0" />
+      <point x="383.8625000000002" y="240.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.restcontroller.SimilaritiesBasedRestController" target="org.springframework.web.bind.annotation.CrossOrigin">
+      <point x="-131.25" y="-58.5" />
+      <point x="131.25" y="1352.0" />
+      <point x="485.42499999999995" y="1352.0" />
+      <point x="-88.66666666666669" y="146.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.restcontroller.SimilaritiesBasedRestController" target="org.springframework.web.bind.annotation.RestController">
+      <point x="131.25" y="-58.5" />
+      <point x="393.75" y="1362.0" />
+      <point x="800.3666666666667" y="1362.0" />
+      <point x="-48.66666666666663" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.MovieRatingPredictorServiceImpl" target="org.springframework.stereotype.Component">
+      <point x="135.75" y="-47.5" />
+      <point x="1005.8625000000001" y="230.0" />
+      <point x="1656.4458333333337" y="230.0" />
+      <point x="-49.58333333333326" y="26.5" />
+    </edge>
+    <edge source="org.springframework.stereotype.Repository" target="org.springframework.stereotype.Component">
+      <point x="0.0" y="-26.5" />
+      <point x="-9.916666666666742" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.repository.RatingRepository" target="org.springframework.data.repository.CrudRepository">
+      <point x="-111.99999999999989" y="-48.5" />
+      <point x="112.0" y="867.0" />
+      <point x="222.69583333333344" y="867.0" />
+      <point x="-81.66666666666667" y="136.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.restcontroller.HomeRestController" target="org.springframework.web.bind.annotation.CrossOrigin">
+      <point x="-57.5" y="-47.5" />
+      <point x="937.5" y="1352.0" />
+      <point x="662.7583333333333" y="1352.0" />
+      <point x="88.66666666666669" y="146.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.entity.Movie" target="javax.persistence.Entity">
+      <point x="0.0" y="-48.5" />
+      <point x="1714.0" y="1107.0" />
+      <point x="1804.1666666666667" y="1107.0" />
+      <point x="-40.33333333333326" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.entity.User" target="javax.persistence.Entity">
+      <point x="0.0" y="-59.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.repository.UserRepository" target="org.springframework.stereotype.Repository">
+      <point x="36.5" y="-14.5" />
+      <point x="1030.4395833333333" y="867.0" />
+      <point x="1696.1125000000002" y="867.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.repository.MovieRepository" target="org.springframework.stereotype.Repository">
+      <point x="61.5" y="-37.5" />
+      <point x="1776.3020833333335" y="867.0" />
+      <point x="1735.7791666666667" y="867.0" />
+      <point x="39.66666666666674" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.restcontroller.HomeRestController" target="org.springframework.web.bind.annotation.RestController">
+      <point x="57.5" y="-47.5" />
+      <point x="1052.5" y="1342.0" />
+      <point x="897.6999999999999" y="1342.0" />
+      <point x="48.66666666666663" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.repository.RatingRepository" target="org.springframework.stereotype.Repository">
+      <point x="112.00000000000011" y="-48.5" />
+      <point x="336.0" y="857.0" />
+      <point x="1656.4458333333332" y="857.0" />
+      <point x="-39.66666666666674" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.MovieRatingPredictorServiceImpl" target="com.movierecommendersystem.movieteam.service.MovieRatingPredictorService">
+      <point x="-135.75" y="-47.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.service.PearsonCorrelationService" target="com.movierecommendersystem.movieteam.service.UserSimilaritiesService">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.UserByUserMovieRatingPredictorImpl" target="org.springframework.stereotype.Component">
+      <point x="-113.75" y="-278.5" />
+      <point x="3054.3625" y="220.0" />
+      <point x="1755.6125000000002" y="220.0" />
+      <point x="49.58333333333326" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.repository.UserRepository" target="org.springframework.data.repository.CrudRepository">
+      <point x="-36.5" y="-14.5" />
+      <point x="957.4395833333333" y="847.0" />
+      <point x="304.3625000000002" y="847.0" />
+      <point x="0.0" y="136.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.UserByUserMovieRatingPredictorImpl" target="com.movierecommendersystem.movieteam.service.UserByUserMovieRatingPredictor">
+      <point x="113.75" y="-278.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.restcontroller.SearchRestController" target="org.springframework.web.bind.annotation.RestController">
+      <point x="78.75" y="-58.5" />
+      <point x="781.25" y="1372.0" />
+      <point x="849.0333333333333" y="1372.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.repository.MovieRepository" target="org.springframework.data.repository.CrudRepository">
+      <point x="-61.5" y="-37.5" />
+      <point x="1653.3020833333335" y="837.0" />
+      <point x="386.0291666666669" y="837.0" />
+      <point x="81.66666666666669" y="136.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.UserRatingProcessingServiceImpl" target="com.movierecommendersystem.movieteam.service.UserRatingProcessingService">
+      <point x="122.75" y="-80.5" />
+      <point x="0.0" y="48.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.entity.Rating" target="javax.persistence.Entity">
+      <point x="-27.75" y="-48.5" />
+      <point x="1951.75" y="1107.0" />
+      <point x="1884.8333333333333" y="1107.0" />
+      <point x="40.33333333333326" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.UserByUserSimilaritiesBasedRecommenderImpl" target="org.springframework.stereotype.Component">
+      <point x="113.75" y="-201.5" />
+      <point x="1502.8625000000002" y="240.0" />
+      <point x="1676.2791666666667" y="240.0" />
+      <point x="-29.75" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.PearsonCorrelationServiceImpl" target="org.springframework.stereotype.Component">
+      <point x="-158.5" y="-26.5" />
+      <point x="2445.1125" y="230.0" />
+      <point x="1735.7791666666667" y="230.0" />
+      <point x="29.75" y="26.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.entity.RatingId" target="java.io.Serializable">
+      <point x="0.0" y="-101.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.restcontroller.SearchRestController" target="org.springframework.web.bind.annotation.CrossOrigin">
+      <point x="-78.75" y="-58.5" />
+      <point x="623.75" y="1352.0" />
+      <point x="574.0916666666667" y="1352.0" />
+      <point x="0.0" y="146.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.entity.Rating" target="javax.persistence.IdClass">
+      <point x="27.75" y="-48.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.Repository" target="org.springframework.stereotype.Indexed">
+      <point x="0.0" y="-14.5" />
+      <point x="383.8625000000002" y="78.0" />
+      <point x="1023.5229166666667" y="78.0" />
+      <point x="-24.25" y="14.5" />
+    </edge>
+    <edge source="org.springframework.data.repository.CrudRepository" target="org.springframework.data.repository.NoRepositoryBean">
+      <point x="-61.25" y="-136.5" />
+      <point x="243.11250000000018" y="240.0" />
+      <point x="224.86250000000018" y="240.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.movierecommendersystem.movieteam.serviceimpl.UserByUserSimilaritiesBasedRecommenderImpl" target="com.movierecommendersystem.movieteam.service.UserByUserSimilaritiesBasedRecommender">
+      <point x="-113.75" y="-201.5" />
+      <point x="0.0" y="26.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5392771084337349" x="1027.5" y="239.5" />
+  <SelectedNodes>
+    <node>com.movierecommendersystem.movieteam.MovieteamApplication</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
